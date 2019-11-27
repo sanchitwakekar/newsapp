@@ -1,0 +1,23 @@
+.ListElementStyle{
+    color: white;
+    padding: 5%;
+    font-size: 75%;
+    text-align: left;    
+    cursor: pointer;
+}
+.ListElementStyle:hover{
+    color: black;
+    background-color: white;
+    padding: 5%;
+    font-size: 75%;
+    text-align: left; 
+    cursor: pointer;
+}
+.ListElementActiveStyle{
+    color: black;
+    background-color: white;
+    padding: 5%;
+    font-size: 75%;
+    cursor: pointer;
+    text-align: left; 
+}

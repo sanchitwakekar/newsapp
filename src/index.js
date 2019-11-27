@@ -1,10 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { RootSaga } from './Middleware/index';
+import createSagaMiddleware from 'redux-saga';
+import { NewsReducer } from './Reducers/NewsReducer';
+import { Provider } from 'react-redux';
+import logger from 'redux-logger'
 import './index.css';
-import App from './App';
+import AppRouter from './Route/AppRouter';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const saga = createSagaMiddleware();
+
+const store = createStore(NewsReducer, applyMiddleware(saga,logger));
+saga.run(RootSaga);
+ReactDOM.render(<Provider store={store}><AppRouter /></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
